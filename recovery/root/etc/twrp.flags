@@ -1,0 +1,24 @@
+# Android fstab file.
+
+# mount point  fstype device                                   device2              flags
+/system         ext4   /dev/block/platform/11120000.ufs/by-name/SYSTEM        wait,flags=backup=1;display="System";
+/vendor         ext4   /dev/block/platform/11120000.ufs/by-name/VENDOR        wait,flags=backup=1;display="Vendor";
+
+/system_image   emmc   /dev/block/platform/11120000.ufs/by-name/SYSTEM        flags=backup=1;flashimg=1;display="System Image";
+/vendor_image   emmc   /dev/block/platform/11120000.ufs/by-name/VENDOR        flags=backup=1;flashimg=1;display="Vendor Image";
+
+/boot           emmc   /dev/block/platform/11120000.ufs/by-name/BOOT		    flags=backup=1;flashimg=1
+/recovery       emmc   /dev/block/platform/11120000.ufs/by-name/RECOVERY      flags=backup=1;flashimg=1
+/cache          ext4   /dev/block/platform/11120000.ufs/by-name/CACHE         flags=wipeingui;display="Cache"
+/modem          emmc   /dev/block/platform/11120000.ufs/by-name/RADIO         flags=backup=1;display="Modem"
+/efs            ext4   /dev/block/platform/11120000.ufs/by-name/EFS           flags=backup=1;display="EFS"
+
+/prism         ext4   /dev/block/platform/11120000.ufs/by-name/PRISM           flags=backup=1;wipeingui;display="Prism"
+/optics         ext4   /dev/block/platform/11120000.ufs/by-name/OPTICS           flags=backup=1;wipeingui;display="Optics"
+
+/prism_image   emmc   /dev/block/platform/11120000.ufs/by-name/PRISM           flags=backup=1;flashimg=1;display="Prism Image"
+/optics_image   emmc   /dev/block/platform/11120000.ufs/by-name/OPTICS           flags=backup=1;flashimg=1;display="Optics Image"
+
+# Removable partitions
+/external_sd	auto		/dev/block/mmcblk0p1	/dev/block/mmcblk0	flags=display="Micro SD Card";storage;wipeingui;removable
+/usb-otg	    auto		/dev/block/sdf1 /dev/block/sdf		    flags=display="USB OTG";storage;wipeingui;removable
